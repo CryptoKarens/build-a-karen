@@ -7,164 +7,56 @@
                 rel="stylesheet"
                 href="./style.css"
             />
-            <style type="text/css">
-
-                .drag{
-                position:relative;
-                cursor:hand;
-                z-index: 100;
-                }
+            <link href="draganddrop.css" rel="stylesheet">
+            <script src="//code.jquery.com/jquery.min.js"></script>
+            <script src="draganddrop.js"></script>
                 
-                </style>
-                
-                <script type="text/javascript">
-                
-                /***********************************************
-                * Drag and Drop Script: (c) Dynamic Drive (http://www.dynamicdrive.com)
-                * Please keep this notice intact
-                * Visit http://www.dynamicdrive.com/ for this script and 100s more.
-                ***********************************************/
-                
-                function _(id) {
-    return document.getElementById(id);
-}
-
-var droppedIn = false;
-
-window.onload = function () {
-    // Drag zone functionality
-    var dropZone = _('drop_zone');
-
-    dropZone.addEventListener('dragenter', handleDragEnter, false);
-    dropZone.addEventListener('dragleave', handleDragLeave, false);
-    dropZone.addEventListener('drop', handleDragDrop, false);
-
-    function handleDragEnter(e) {
-        _('app_status').innerHTML = "You are dragging over the " + e
-            .target
-            .getAttribute('id');
-    }
-
-    function handleDragLeave(e) {
-        _('app_status').innerHTML = "You left the " + e
-            .target
-            .getAttribute('id');
-    }
-
-    function handleDragDrop(e) {
-        e.preventDefault();
-        var element_id = e
-            .dataTransfer
-            .getData("text");
-        e
-            .target
-            .appendChild(_(element_id));
-        _(element_id).removeAttribute("draggable")
-        _(element_id).style.cursor = "default";
-        droppedIn = true;
-        _('app_status').innerHTML = "You droped " + element_id + " into drop zone";
-    }
-
-    // Draggable element functionality
-    var object1 = _('object1');
-    var object2 = _('object2');
-    var object3 = _('object3');
-
-    var activeEvent = '';
-    var originalX = '';
-    var originalY = '';
-
-    object1.addEventListener('dragstart', handleDragStart, false);
-    object1.addEventListener('dragend', handleDragEnd, false);
-    object1.addEventListener('touchstart', handleTouchStart, false);
-    object1.addEventListener('touchmove', handleTouchMove, false);
-    object1.addEventListener('touchend', handleTouchEnd, false);
-
-    object2.addEventListener('dragstart', handleDragStart, false);
-    object2.addEventListener('dragend', handleDragEnd, false);
-    object2.addEventListener('touchstart', handleTouchStart, false);
-    object2.addEventListener('touchmove', handleTouchMove, false);
-    object2.addEventListener('touchend', handleTouchEnd, false);
-
-    object3.addEventListener('dragstart', handleDragStart, false);
-    object3.addEventListener('dragend', handleDragEnd, false);
-    object3.addEventListener('touchstart', handleTouchStart, false);
-    object3.addEventListener('touchmove', handleTouchMove, false);
-    object3.addEventListener('touchend', handleTouchEnd, false);
-
-    function handleDragStart(e) {
-        _('app_status').innerHTML = "Dragging the element " + e
-            .target
-            .getAttribute('id');
-        e.dataTransfer.dropEffect = "move";
-        e
-            .dataTransfer
-            .setData("text", e.target.getAttribute('id'));
-    }
-
-    function handleDragEnd(e) {
-        if (droppedIn == false) {
-            _('app_status').innerHTML = "You let the " + e
-                .target
-                .getAttribute('id') + " go.";
-        }
-        droppedIn = false;
-    }
-
-    function handleTouchStart(e) {
-        _('app_status').innerHTML = "Touch start with element " + e
-            .target
-            .getAttribute('id');
-        originalX = (e.target.offsetLeft - 10) + "px";
-        originalY = (e.target.offsetTop - 10) + "px";
-        activeEvent = 'start';
-    }
-
-    function handleTouchMove(e) {
-        var touchLocation = e.targetTouches[0];
-        var pageX = (touchLocation.pageX - 50) + "px";
-        var pageY = (touchLocation.pageY - 50) + "px";
-        _('app_status').innerHTML = "Touch x " + pageX + " Touch y " + pageY;
-        e.target.style.position = "absolute";
-        e.target.style.left = pageX;
-        e.target.style.top = pageY;
-        activeEvent = 'move';
-    }
-
-    function handleTouchEnd(e) {
-        e.preventDefault();
-        if (activeEvent === 'move') {
-            var pageX = (parseInt(e.target.style.left) - 50);
-            var pageY = (parseInt(e.target.style.top) - 50);
-
-            if (detectTouchEnd(dropZone.offsetLeft, dropZone.offsetTop, pageX, pageY, dropZone.offsetWidth, dropZone.offsetHeight)) {
-                dropZone.appendChild(e.target);
-                e.target.style.position = "initial";
-                droppedIn = true;
-                _('app_status').innerHTML = "You droped " + e
-                    .target
-                    .getAttribute('id') + " into drop zone";
-            } else {
-                e.target.style.left = originalX;
-                e.target.style.top = originalY;
-                _('app_status').innerHTML = "You let the " + e
-                    .target
-                    .getAttribute('id') + " go.";
-            }
-        }
-    }
-
-    function detectTouchEnd(x1, y1, x2, y2, w, h) {
-        //Very simple detection here
-        if (x2 - x1 > w) 
-            return false;
-        if (y2 - y1 > h) 
-            return false;
-        return true;
-    }
-}
-                </script>
-
+            <script type='text/javascript'>
+              $(function() {
+                //grouped lists
+                $('ul.grouped').sortable({
+                  group: true
+                });
+        
+                //normal list
+                $('ul.normal').sortable({
+                  autocreate: true,
+                  update: function(evt) {
+                    console.log(JSON.stringify($(this).sortable('serialize')));
+                  }
+                });
+        
+                //remaining lists
+                $('ul.float, ul.inline').sortable({
+                  update: function(evt) {
+                    console.log(JSON.stringify($(this).sortable('serialize')));
+                  }
+                });
+        
+                //div list
+                $('.list.parent').sortable({container: '.list', nodes: ':not(.list)'});
+        
+                //draggable
+                $('.drag').draggable();
+                $('.draggables').draggable({delegate: 'button', placeholder: true});
+                $('.draghandle').draggable({handle: '.handle', placeholder: true});
+                $('.dragdrop').draggable({
+                  revert: true,
+                  placeholder: true,
+                  droptarget: '.drop',
+                  drop: function(evt, droptarget) {
+                    $(this).appendTo(droptarget).draggable('destroy');
+                  }
+                });
+        
+                //off switch
+                $('.off').on('click', function() {
+                  $('.sortable').each(function() { $(this).sortable('destroy'); });
+                  $('.draggable').each(function() { $(this).draggable('destroy'); });
+                });
+              });
+            </script>
+      
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
@@ -185,7 +77,7 @@ window.onload = function () {
             <h2>drag & assemble items in the box below. </h2>
             <p>this is just for fun and no, there is no "point". built by <a href="https://cryptokarens.online">CryptoKarens</a>.</p>
             <div class="designhere" class="ui-corner-all ui-droppable"></div><br />
-  <!-- lips --></div><p>skintone</p><div id="box">
+  <!-- lips --></div><p>skintone</p>
                 <div class="skintone">
                     <img class="drag" src="./assets/images/skin tone/pale.png" width="110px" height="110px">                    
                     <img class="drag" src="./assets/images/skin tone/tan.png" width="110px" height="110px">
@@ -196,7 +88,7 @@ window.onload = function () {
                     </div><br /></div>
 
                     <div><p>speech bubbles</p>
-                    <div class="speech"><div id="box">
+                    <div class="speech">
                     <img class="drag" src="./assets/images/taglines/where-is-the-manager.png" width="110px" height="50px" >
                     <img class="drag" src="./assets/images/taglines/refund.png" width="110px" height="50px" >
                     <img class="drag" src="./assets/images/taglines/not-racist.png" width="110px" height="50px" >
@@ -210,7 +102,7 @@ window.onload = function () {
               </div></div></div>
             </div>
   <!-- lips --><p>lip colors</p>
-    <div class="lips"><div id="box">
+    <div class="lips">
         <img class="drag" width="22px" height="22px;"  src="assets/images/lips/RED-LIPS-V2.png">
         <img class="drag" width="22px" height="22px;"  src="assets/images/lips/BLUE-LIPS-V2.png">
         <img class="drag" width="22px" height="22px;"  src="assets/images/lips/LIME-LIPS-V2.png">
@@ -224,7 +116,7 @@ window.onload = function () {
         <img class="drag" width="22px" height="22px;"  src="assets/images/lips/LIGHT-PINK-LIPS-V2.png">
    </div></div>
           <!-- necklaces --><div><p>necklaces</p>
-          <div class="necklace"><div id="box">
+          <div class="necklace">
             <img class="drag" width="30px" height="20px;"  src="assets/images/necklace/PURPLE-TEAL-CHOKER-V2.png">
             <img class="drag" width="30px" height="20px;"  src="assets/images/necklace/RED-SILVER-CHOKER-V2.png">
             <img class="drag" width="30px" height="20px;"  src="assets/images/necklace/BLUE-TEAL-CHOKER-V2.png">
@@ -263,7 +155,7 @@ window.onload = function () {
 </div>
 
             <!-- earrings --><p>earrings</p>
-      <div class="earrings"><div id="box">
+      <div class="earrings">
         <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/RED-HOOPS-V2.png">
         <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/BLUE-HOOPS-V2.png">
         <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/GOLD-HOOPS-V2.png">
@@ -311,7 +203,7 @@ window.onload = function () {
     </div></div>
 
                 <!-- PIERCINGS --><p>piercings</p>
-                <div class="piercings"><div id="box">
+                <div class="piercings">
                   <img class="drag" width="13px" height="28px;"  src="assets/images/piercings/LIP-NOSE-GOLD-V2.png">
                   <img class="drag" width="15px" height="30px;"  src="assets/images/piercings/LIP-NOSE-SILVER-V2.png">
                   <img class="drag" width="15px" height="30px;"  src="assets/images/piercings/LIP-NOSE-BLACK-V2.png">
@@ -337,7 +229,7 @@ window.onload = function () {
 </div>
 
                   <!-- hair --><p>hair</p>
-      <div class="hair"><div id="box">
+      <div class="hair">
                     <img class="drag" width="110px" height="110px;"  src="assets/images/hair/berry-bangs.png">
                     <img class="drag" width="110px" height="110px" src="assets/images/hair/berry-bob.png">
                     <img class="drag" width="110px" height="110px" src="assets/images/hair/berry-space-buns.png">
@@ -383,7 +275,7 @@ window.onload = function () {
 </div></div>
 
 <!-- headbands --><p>headbands & hair clips</p>
-<div class="hairaccess"><div id="box">
+<div class="hairaccess">
   <img class="drag" width="55px" height=45px src="assets/images/accessory/BLUE-HEADBAND-V2.png">
   <img class="drag" width="55px" height=45px src="assets/images/accessory/RED-HEADBAND-V2.png">
   <img class="drag" width="55px" height=45px src="assets/images/accessory/Y2K-HEADBAND-V2.png">
@@ -418,7 +310,7 @@ window.onload = function () {
 
 
 <!-- hats --><p>hats, head scarves & accessories</p>
-<div class="hat"><div id="box">
+<div class="hat">
   <img class="drag" src="./assets/images/accessory/black-oversize-beanie.png" width="110px" height="110px;">
   <img class="drag" width="110px" height=110px src="assets/images/accessory/magenta-oversize-beanie.png">
   <img class="drag" width="110px" height="110px;"  src="assets/images/accessory/yellow-oversize-beanie.png">
