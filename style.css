@@ -66,6 +66,12 @@ p[draggable]{
 
 }
 
+#box {
+    position: absolute;
+
+  }
+
+
 .lips {
     display:flex;
     flex-direction: row;
