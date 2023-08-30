@@ -1,0 +1,293 @@
+html {
+    background: lightgray;
+}
+h1 {
+    color: magenta;
+    font-family: 'VT323', monospace;
+    text-align:left;
+    position:relative;
+    left: 20px;
+  }
+h2 {
+    color:blue;
+    font-family: 'VT323', monospace;
+    position:relative;
+    left: 20px;
+    font-size:small;
+}
+p {
+    color:blue;
+    font-family: 'VT323', monospace;
+    position:relative;
+    left: 20px;
+    font-size:x-small;
+}
+.magenta-text {
+    color:magenta;
+}
+#main {
+    color:purple
+}
+p[draggable]{
+    color:aqua;
+}
+
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+
+.first {
+    flex: 1;
+    
+    
+}
+
+.second {
+    flex: 2;
+    
+}
+
+.designhere {
+    gap: 10px;
+    padding: 0px;
+    background-color: whitesmoke;
+    border:solid magenta;
+    border-width: 3px 3px;
+    position:relative;
+    width: 150px;
+    height: 150px;
+    left: 3%;
+    top:auto;
+
+
+}
+
+.lips {
+    display:flex;
+    flex-direction: row;
+    position:relative;
+    flex-wrap: wrap;
+    margin: 15px;
+    left: 3%;
+    width: 75%;
+
+}
+
+.lips > .drag {
+    display:flex;
+    margin: 15px;
+
+  }
+
+  .necklace {
+    display:flex;
+    flex-direction: row;
+    position:relative;
+    flex-wrap: wrap;
+    margin: 25px;
+    left: 3%;
+    width: 70%;
+}
+
+.necklace > .drag {
+    display:flex;
+    margin: 5px;
+
+  }
+.earrings {
+    display:flex;
+    flex-direction: row;
+    position:relative;
+    flex-wrap: wrap;
+    margin:5px;
+    left: 5%;
+    width: 75%;
+}
+
+.earrings > .drag {
+    display:flex;
+    margin:5px;
+
+  }
+
+
+.piercings {
+    display:flex;
+    flex-direction: row;
+    position:relative;
+    flex-wrap: wrap;
+    margin:5px;
+    left: 5%;
+    width: 75%;
+}
+.piercings > .drag {
+    display:flex;
+    margin:5px;
+
+  }
+.hair {
+    display:flex;
+    position:relative;
+    flex-wrap: wrap;
+    left: 3%;
+    width: 75%;
+
+
+  }
+
+  .hair > .drag {
+    display:flex;
+    margin:-15px;
+
+  }
+  .vices {
+    display:flex;
+    flex-direction: row;
+    position:relative;
+    flex-wrap: wrap;
+    margin:15px;
+    left: 3%;
+    width: 75%;
+}
+.vices > .drag {
+    display:flex;
+    margin: 5px;
+
+  }
+.hat {
+    display:flex;
+    flex-direction: row;
+    position:relative;
+    flex-wrap: wrap;
+    margin:-5px;
+    left: 5%;
+    width: 75%;
+}
+.hat > .drag {
+    display:flex;
+    margin:-15px;
+
+  }
+  .hat2 {
+    display:flex;
+    flex-direction: row;
+    position:relative;
+    flex-wrap: wrap;
+    margin:-5px;
+    left: 5%;
+    width: 75%;
+}
+.hat2 > .drag {
+    display:flex;
+    margin:5px;
+
+  }
+  .hairaccess {
+    display:flex;
+    flex-direction: row;
+    position:relative;
+    flex-wrap: wrap;
+    margin:-5px;
+    left: 5%;
+    width: 75%;
+}
+.hairaccess > .drag {
+    display:flex;
+    margin:0px;
+
+  }
+
+.skintone {
+    display:flex;
+    position:relative;
+    flex-wrap: wrap;
+    left: 3%;
+    margin: 5px;
+    width: 75%;
+}
+
+.skintone > .drag {
+    display:flex;
+    margin:-15px;
+    top:10%;
+
+}
+.speech {
+    display:flex;
+    position:relative;
+    flex-wrap: wrap;
+    left: 3%;
+    margin: 5px;
+    width: 75%;
+}
+
+.speech > .drag {
+    display:flex;
+
+}
+  .container > .drag {
+    display:flex;
+    margin:-15px;
+
+  }
+
+
+
+
+
+   ***lksndflsdlbl****
+
+
+
+#container {
+    display: flex;
+    overflow: hidden;
+
+
+}
+
+
+
+.flex-jc {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+#clearCustomization {
+    font-size: 10px;
+    font-style: italic;
+}
+
+#export {
+    display: none;
+    text-align: center;
+}
+
+
+#canvasWrapper {
+    width: 100%;
+    position: relative;
+    height: 150px;
+    width: 150px;
+}
+
+.canvas {
+    content: '';
+    width: 100%;
+    position: relative;
+    border: 1px solid #6075B8;
+    background-color: #FED4E0;
+    height: 150px;
+    width: 150px;
+    z-index: 1;
+
+}
+
+

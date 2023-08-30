@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+        <head>
+            <title>CryptoKaren Builder</title>
+            <link
+                rel="stylesheet"
+                href="./style.css"
+            />
+            <style type="text/css">
+
+                .drag{
+                position:relative;
+                cursor:hand;
+                z-index: 100;
+                }
+                
+                </style>
+                
+                <script type="text/javascript">
+                
+                /***********************************************
+                * Drag and Drop Script: (c) Dynamic Drive (http://www.dynamicdrive.com)
+                * Please keep this notice intact
+                * Visit http://www.dynamicdrive.com/ for this script and 100s more.
+                ***********************************************/
+                
+                var dragobject={
+                z: 0, x: 0, y: 0, offsetx : null, offsety : null, targetobj : null, dragapproved : 0,
+                initialize:function(){
+                document.onmousedown=this.drag
+                document.onmouseup=function(){this.dragapproved=0}
+                },
+                drag:function(e){
+                var evtobj=window.event? window.event : e
+                this.targetobj=window.event? event.srcElement : e.target
+                if (this.targetobj.className=="drag"){
+                this.dragapproved=1
+                if (isNaN(parseInt(this.targetobj.style.left))){this.targetobj.style.left=0}
+                if (isNaN(parseInt(this.targetobj.style.top))){this.targetobj.style.top=0}
+                this.offsetx=parseInt(this.targetobj.style.left)
+                this.offsety=parseInt(this.targetobj.style.top)
+                this.x=evtobj.clientX
+                this.y=evtobj.clientY
+                if (evtobj.preventDefault)
+                evtobj.preventDefault()
+                document.onmousemove=dragobject.moveit
+                }
+                },
+                moveit:function(e){
+                var evtobj=window.event? window.event : e
+                if (this.dragapproved==1){
+                this.targetobj.style.left=this.offsetx+evtobj.clientX-this.x+"px"
+                this.targetobj.style.top=this.offsety+evtobj.clientY-this.y+"px"
+                return false
+                }
+                }
+                }
+                
+                dragobject.initialize()
+
+
+                
+                </script>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.5.0-alpha.1/jquery.mobile-1.5.0-alpha.1.min.css">
+
+
+        </head> 
+
+        <body> 
+        
+<h1>Build-A-Karen</h1>
+            <h2>drag & assemble items in the box below. </h2>
+            <p>this is just for fun and no, there is no "point". built by <a href="https://cryptokarens.online">CryptoKarens</a>.</p>
+            <div class="designhere" class="ui-corner-all ui-droppable"></div><br />
+  <!-- lips --></div><p>skintone</p>
+                <div class="skintone">
+                    <img class="drag" src="./assets/images/skin tone/pale.png" width="110px" height="110px">                    
+                    <img class="drag" src="./assets/images/skin tone/tan.png" width="110px" height="110px">
+                    <img class="drag" src="./assets/images/skin tone/black-2.png" width="110px" height="110px">
+                    <img class="drag" src="./assets/images/skin tone/black-3.png" width="110px" height="110px">
+                    <img class="drag" src="./assets/images/skin tone/black.png" width="110px" height="110px">
+                    <img class="drag" src="./assets/images/skin tone/witch-green.png" width="110px" height="110px"><br />
+                    </div><br />
+
+                    <div><p>speech bubbles</p>
+                    <div class="speech">
+                    <img class="drag" src="./assets/images/taglines/where-is-the-manager.png" width="110px" height="50px" >
+                    <img class="drag" src="./assets/images/taglines/refund.png" width="110px" height="50px" >
+                    <img class="drag" src="./assets/images/taglines/not-racist.png" width="110px" height="50px" >
+                    <img class="drag" src="./assets/images/taglines/corporate.png" width="110px" height="50px" >
+                    <img class="drag" src="./assets/images/taglines/where-is-my-latte.png" width="110px" height="50px" >
+                    <img class="drag" src="./assets/images/taglines/pay-you-back.png" width="110px" height="50px" >
+                    <img class="drag" src="./assets/images/taglines/delete-video.png" width="110px" height="50px" >
+                    <img class="drag" src="./assets/images/taglines/dont-believe-in-tipping.png" width="110px" height="50px" >
+                    <img class="drag" src="./assets/images/taglines/calling-the-police.png" width="110px" height="50px" >
+                    <img class="drag" src="./assets/images/taglines/blank.png" width="110px" height="50px" >
+              </div>
+            </div>
+  <!-- lips --><p>lip colors</p>
+    <div class="lips">
+        <img class="drag" width="22px" height="22px;"  src="assets/images/lips/RED-LIPS-V2.png">
+        <img class="drag" width="22px" height="22px;"  src="assets/images/lips/BLUE-LIPS-V2.png">
+        <img class="drag" width="22px" height="22px;"  src="assets/images/lips/LIME-LIPS-V2.png">
+        <img class="drag" width="22px" height="22px;"  src="assets/images/lips/PINK-LIPS-V2.png">
+        <img class="drag" width="22px" height="22px;"  src="assets/images/lips/BLACK-LIPS-V2.png">
+        <img class="drag" width="22px" height="22px;"  src="assets/images/lips/DARK-BROWN-V2.png">
+        <img class="drag" width="22px" height="22px;"  src="assets/images/lips/MAGENTA-LIPS-V2.png">
+        <img class="drag" width="22px" height="22px;"  src="assets/images/lips/GREEN-LIPS-V2.png">
+        <img class="drag" width="22px" height="22px;"  src="assets/images/lips/PURPLE-LIPS-V2.png">
+        <img class="drag" width="22px" height="22px;"  src="assets/images/lips/LIGHT-BLUE-LIPS-V2.png">
+        <img class="drag" width="22px" height="22px;"  src="assets/images/lips/LIGHT-PINK-LIPS-V2.png">
+   </div>
+          <!-- necklaces --><div><p>necklaces</p>
+          <div class="necklace">
+            <img class="drag" width="30px" height="20px;"  src="assets/images/necklace/PURPLE-TEAL-CHOKER-V2.png">
+            <img class="drag" width="30px" height="20px;"  src="assets/images/necklace/RED-SILVER-CHOKER-V2.png">
+            <img class="drag" width="30px" height="20px;"  src="assets/images/necklace/BLUE-TEAL-CHOKER-V2.png">
+            <img class="drag" width="30px" height="20px;"  src="assets/images/necklace/MAGENTA-YELLOW-CHOKER-V2.png">
+            <img class="drag" width="30px" height="20px;"  src="assets/images/necklace/RED-2-V2.png">
+            <img class="drag" width="30px" height="20px;"  src="assets/images/necklace/GOLD-V-V2.png">
+            <img class="drag" width="30px" height="20px;"  src="assets/images/necklace/LIME-2-V2.png">
+            <img class="drag" width="30px" height="20px;"  src="assets/images/necklace/PINK-2-V2.png">
+            <img class="drag" width="30px" height="20px;"  src="assets/images/necklace/TEAL-2-V2.png">
+            <img class="drag" width="30px" height="20px;"  src="assets/images/necklace/PURPLE-2-V2.png">
+            <img class="drag" width="30px" height="20px;"  src="assets/images/necklace/SILVER-2-V2.png">
+            <img class="drag" width="30px" height="20px;"  src="assets/images/necklace/MAGENTA-2-V2.png">
+            <img class="drag" width="30px" height="20px;"  src="assets/images/necklace/RED-3-V2.png">
+            <img class="drag" width="30px" height="20px;"  src="assets/images/necklace/BLUE-3-V2.png">
+            <img class="drag" width="30px" height="20px;"  src="assets/images/necklace/GOLD-3-V2.png">
+            <img class="drag" width="30px" height="20px;"  src="assets/images/necklace/LIME-3-V2.png">
+            <img class="drag" width="30px" height="20px;"  src="assets/images/necklace/TEAL-3-V2.png">
+            <img class="drag" width="30px" height="20px;"  src="assets/images/necklace/BLACK-3-V2.png">
+            <img class="drag" width="30px" height="20px;"  src="assets/images/necklace/GREEN-3-V2.png">
+            <img class="drag" width="30px" height="20px;"  src="assets/images/necklace/PURPLE-3-V2.png">
+            <img class="drag" width="30px" height="20px;"  src="assets/images/necklace/SILVER-3-V2.png">
+            <img class="drag" width="30px" height="20px;"  src="assets/images/necklace/MAGENTA-3-V2.png">
+            <img class="drag" width="30px" height="20px;"  src="assets/images/necklace/TEAL-TATTOO-V2.png">
+            <img class="drag" width="30px" height="20px;"  src="assets/images/necklace/RED-TATTOO-V2.png">
+            <img class="drag" width="30px" height="20px;"  src="assets/images/necklace/BLUE-TATTOO-V2.png">
+            <img class="drag" width="30px" height="20px;"  src="assets/images/necklace/GOLD-TATTOO-V2.png">
+            <img class="drag" width="30px" height="20px;"  src="assets/images/necklace/LIME-TATTOO-V2.png">
+            <img class="drag" width="30px" height="20px;"  src="assets/images/necklace/BLACK-TATTOO-V2.png">
+            <img class="drag" width="30px" height="20px;"  src="assets/images/necklace/GREEN-TATTOO-V2.png">
+            <img class="drag" width="30px" height="20px;"  src="assets/images/necklace/SILVER-TATTOO-V2.png">
+            <img class="drag" width="30px" height="20px;"  src="assets/images/necklace/PURPLE-TATTO-V2.png">
+            <img class="drag" width="30px" height="20px;"  src="assets/images/necklace/MAGENTA-TATTOO-V2.png">
+          </div>
+
+            <br />
+</div>
+
+            <!-- earrings --><p>earrings</p>
+      <div class="earrings">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/RED-HOOPS-V2.png">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/BLUE-HOOPS-V2.png">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/GOLD-HOOPS-V2.png">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/LIME-HOOPS-V2.png">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/TEAL-HOOPS-V2.png">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/BLACK-HOOPS-V2.png">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/PURPLE-HOOPS-V2.png">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/SILVER-HOOPS-V2.png">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/MAGENTA-HOOPS-V2.png">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/RAINBOW-HOOPS-V2.png">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/Y2K-RAINBOW-HOOPS-V2.png">
+
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/RED-DIAMOND-V2.png">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/Y2K-DIAMOND-V2.png">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/BLUE-DIAMOND-V2.png">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/GOLD-DIAMOND-V2.png">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/LIME-DIAMOND-V2.png">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/TEAL-DIAMOND-V2.png">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/BLACK-DIAMOND-V2.png">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/PURPLE-DIAMOND-V2.png">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/SILVER-DIAMOND-V2.png">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/MAGENTA-DIAMOND-V2.png">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/RAINBOW-DIAMOND-V2.png">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/RED-DROP-V2.png">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/BLACK-DROP-V2.png">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/Y2K-DROP-V2.png">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/BLUE-DROP-V2.png">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/GOLD-DROP-V2.png">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/LIME-DROP-V2.png">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/TEAL-DROP-V2.png">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/GREEN-DROP-V2.png">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/SILVER-DROP-V2.png">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/MAGENTA-DROP-V2.png">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/RAINBOW-DROP-V2.png">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/Y2K-DROP-V2.png">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/LIME-CROSS-V2.png">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/RED-CROSS-V2.png">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/BLUE-CROSS-V2.png">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/GOLD-CROSS-V2.png">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/TEAL-CROSS-V2.png">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/BLACK-CROSS-V2.png">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/PURPLE-CROSS-V2.png">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/SILVER-CROSS-V2.png">
+        <img class="drag" width="25px" height="22px;"  src="assets/images/earrings/MAGENTA-CROSS-V2.png">
+    </div></div>
+
+                <!-- PIERCINGS --><p>piercings</p>
+                <div class="piercings">
+                  <img class="drag" width="13px" height="28px;"  src="assets/images/piercings/LIP-NOSE-GOLD-V2.png">
+                  <img class="drag" width="15px" height="30px;"  src="assets/images/piercings/LIP-NOSE-SILVER-V2.png">
+                  <img class="drag" width="15px" height="30px;"  src="assets/images/piercings/LIP-NOSE-BLACK-V2.png">
+                  <img class="drag" width="15px" height="30px;"  src="assets/images/piercings/LIP-NOSE-LIME-V2.png">
+                  <img class="drag" width="15px" height="30px;"  src="assets/images/piercings/LIP-NOSE-MAGENTA-V2.png">
+                  <img class="drag" width="15px" height="30px;"  src="assets/images/piercings/LIP-NOSE-RED-V2.png">
+                  <img class="drag" width="15px" height="30px;"  src="assets/images/piercings/LIP-BLACK-V2.png">
+                  <img class="drag" width="15px" height="30px;"  src="assets/images/piercings/LIP-LIME-V2.png">
+                  <img class="drag" width="15px" height="30px;"  src="assets/images/piercings/LIP-RED-V2.png">
+                  <img class="drag" width="15px" height="30px;"  src="assets/images/piercings/LIP-SILVER-V2.png">
+                  <img class="drag" width="15px" height="30px;"  src="assets/images/piercings/LIP-LIME-V2.png">
+                  <img class="drag" width="15px" height="30px;"  src="assets/images/piercings/NOSE-BLACK-V2.png">
+                  <img class="drag" width="15px" height="30px;"  src="assets/images/piercings/NOSE-GOLD-V2.png">
+                  <img class="drag" width="15px" height="30px;"  src="assets/images/piercings/NOSE-MAGENTA-V2.png">
+                  <img class="drag" width="15px" height="30px;"  src="assets/images/piercings/NOSE-RED-V2.png">
+
+
+
+
+
+                 <br /><br />
+
+</div>
+
+                  <!-- hair --><p>hair</p>
+      <div class="hair">
+                    <img class="drag" width="110px" height="110px;"  src="assets/images/hair/berry-bangs.png">
+                    <img class="drag" width="110px" height="110px" src="assets/images/hair/berry-bob.png">
+                    <img class="drag" width="110px" height="110px" src="assets/images/hair/berry-space-buns.png">
+                    <img class="drag" width="110px" height="110px" src="assets/images/hair/black-bangs.png">
+                    <img class="drag" width="110px" height="110px" src="assets/images/hair/black-bob.png">
+                    <img class="drag" width="110px" height="110px" src="assets/images/hair/black-space-buns.png">
+                    <img class="drag" width="110px" height="110px" src="assets/images/hair/blue-bangs.png">
+                    <img class="drag" width="110px" height="110px" src="assets/images/hair/blue-bob.png">
+                    <img class="drag" width="110px" height="110px" src="assets/images/hair/blue-space-buns.png">
+                    <img class="drag" width="110px" height="110px" src="assets/images/hair/red-bangs.png">
+                    <img class="drag" width="110px" height="110px" src="assets/images/hair/red-bob.png">
+                    <img class="drag" width="110px" height="110px" src="assets/images/hair/red-space-buns.png">
+                    <img class="drag" width="110px" height="110px" src="assets/images/hair/yellow-bangs.png">
+                    <img class="drag" width="110px" height="110px" src="assets/images/hair/yellow-bob.png">
+                    <img class="drag" width="110px" height="110px" src="assets/images/hair/yellow-space-buns.png">
+                    <img class="drag" width="110px" height="110px" src="assets/images/hair/teal-bangs.png">
+                    <img class="drag" width="110px" height="110px" src="assets/images/hair/teal-bob.png">
+                    <img class="drag" width="110px" height="110px" src="assets/images/hair/teal-space-buns.png">
+                    <img class="drag" width="110px" height="110px" src="assets/images/hair/lavender-bangs.png">
+                    <img class="drag" width="110px" height="110px" src="assets/images/hair/lavender-bob.png">
+                    <img class="drag" width="110px" height="110px" src="assets/images/hair/lavender-space-buns.png">
+                    <img class="drag" width="110px" height="110px" src="assets/images/hair/rainbow-bangs.png">
+                    <img class="drag" width="110px" height="110px" src="assets/images/hair/rainbow-bob.png">
+                    <img class="drag" width="110px" height="110px" src="assets/images/hair/rainbow-space-buns.png">
+                    <img class="drag" width="110px" height="110px" src="assets/images/hair/magenta-bangs.png">
+                    <img class="drag" width="110px" height="110px" src="assets/images/hair/magenta-bob.png">
+                    <img class="drag" width="110px" height="110px" src="assets/images/hair/magenta-space-buns.png">
+                    <img class="drag" width="110px" height="110px" src="assets/images/hair/brown-bangs.png">
+                    <img class="drag" width="110px" height="110px" src="assets/images/hair/brown-bob.png">
+                    <img class="drag" width="110px" height="110px" src="assets/images/hair/brown-space-buns.png">
+                    <img class="drag" width="110px" height="110px" src="assets/images/hair/white-bangs.png">
+                    <img class="drag" width="110px" height="110px" src="assets/images/hair/white-bob.png">
+                    <img class="drag" width="110px" height="110px" src="assets/images/hair/white-space-buns.png">
+                    <img class="drag" width="110px" height="110px" src="assets/images/hair/seafoam-bangs.png">
+                    <img class="drag" width="110px" height="110px" src="assets/images/hair/seafoam-bob.png">
+                    <img class="drag" width="110px" height="110px" src="assets/images/hair/seafoam-space-buns.png">
+                    <img class="drag" width="110px" height="110px" src="assets/images/hair/grey-bangs.png">
+                    <img class="drag" width="110px" height="110px" src="assets/images/hair/grey-bob.png">
+                    <img class="drag" width="110px" height="110px" src="assets/images/hair/grey-space-buns.png">
+                    <img class="drag" width="110px" height="110px" src="assets/images/hair/y2k-rainbow-bangs.png">
+                    <img class="drag" width="110px" height="110px" src="assets/images/hair/y2k-rainbow-bob.png">
+                    <img class="drag" width="110px" height="110px" src="assets/images/hair/y2k-rainbow-space-buns.png">
+</div>
+
+<!-- headbands --><p>headbands & hair clips</p>
+<div class="hairaccess">
+  <img class="drag" width="55px" height=45px src="assets/images/accessory/BLUE-HEADBAND-V2.png">
+  <img class="drag" width="55px" height=45px src="assets/images/accessory/RED-HEADBAND-V2.png">
+  <img class="drag" width="55px" height=45px src="assets/images/accessory/Y2K-HEADBAND-V2.png">
+  <img class="drag" width="55px" height=45px src="assets/images/accessory/LIME-HEADBAND-V2.png">
+  <img class="drag" width="55px" height=45px src="assets/images/accessory/PINK-HEADBAND-V2.png">
+  <img class="drag" width="55px" height=45px src="assets/images/accessory/TEAL-HEADBAND-V2.png">
+  <img class="drag" width="55px" height=45px src="assets/images/accessory/BLACK-HEADBAND-V2.png">
+  <img class="drag" width="55px" height=45px src="assets/images/accessory/PURPLE-HEADBAND-V2.png">
+  <img class="drag" width="55px" height=45px src="assets/images/accessory/YELLOW-HEADBAND-V2.png">
+  <img class="drag" width="55px" height=45px src="assets/images/accessory/MAGENTA-HEADBAND-V2.png">
+  <img class="drag" width="55px" height=36px src="assets/images/accessory/Y2K-TIARA-V2.png">
+  <img class="drag" width="55px" height=36px src="assets/images/accessory/GOLD-TIARA-V2.png">
+  <img class="drag" width="55px" height=36px src="assets/images/accessory/LIME-TIARA-V2.png">
+  <img class="drag" width="55px" height=36px src="assets/images/accessory/BLACK-TIARA-V2.png">
+  <img class="drag" width="55px" height=36px src="assets/images/accessory/SILVER-TIARA-V2.png">
+  <img class="drag" width="55px" height=36px src="assets/images/accessory/MAGENTA-TIARA-V2.png">
+  <img class="drag" width="55px" height=36px src="assets/images/accessory/LAVENDER-TIARA-V2.png">
+  <img class="drag" width="25px" height=33px src="assets/images/accessory/RED-CLIPS-V2.png">
+  <img class="drag" width="25px" height=33px src="assets/images/accessory/BLUE-CLIPS-V2.png">
+  <img class="drag" width="25px" height=33px src="assets/images/accessory/GOLD-CLIPS-V2.png">
+  <img class="drag" width="25px" height=33px src="assets/images/accessory/LIME-CLIPS-V2.png">
+  <img class="drag" width="25px" height=33px src="assets/images/accessory/PINK-CLIPS-V2.png">
+  <img class="drag" width="25px" height=33px src="assets/images/accessory/TEAL-CLIPS-V2.png">
+  <img class="drag" width="25px" height=33px src="assets/images/accessory/BLACK-CLIPS-V2.png">
+  <img class="drag" width="25px" height=33px src="assets/images/accessory/SILVER-CLIPS-V2.png">
+  <img class="drag" width="25px" height=33px src="assets/images/accessory/MAGENTA-CLIPS-V2.png">
+  <img class="drag" width="25px" height=33px src="assets/images/accessory/PURPLE-CLIPS-V2.png">
+
+
+
+</div>
+
+
+<!-- hats --><p>hats, head scarves & accessories</p>
+<div class="hat">
+  <img class="drag" src="./assets/images/accessory/black-oversize-beanie.png" width="110px" height="110px;">
+  <img class="drag" width="110px" height=110px src="assets/images/accessory/magenta-oversize-beanie.png">
+  <img class="drag" width="110px" height="110px;"  src="assets/images/accessory/yellow-oversize-beanie.png">
+  <img class="drag" width="110px" height="110px" src="./assets/images/accessory/light-blue-oversize-beanie.png">
+  <img class="drag" width="110px" height="110px" src="assets/images/accessory/red-oversize-beanie.png">
+  <img class="drag" width="110px" height="110px" src="assets/images/accessory/purple-oversize-beanie.png">
+  <img class="drag" width="110px" height="110px" src="./assets/images/accessory/lime-oversize-beanie.png">
+  <img class="drag" width="110px" height="110px" src="assets/images/accessory/blue-oversize-beanie.png">
+  <img class="drag" width="110px" height="110px" src="assets/images/accessory/grey-oversize-beanie.png">
+  <img class="drag" width="110px" height="110px" src="assets/images/accessory/BLUE-HEADSCARF.png">
+  <img class="drag" width="110px" height="110px" src="assets/images/accessory/LIME-HEADSCARF.png">
+  <img class="drag" width="110px" height="110px" src="assets/images/accessory/PINK-HEADSCARF-2.png">
+  <img class="drag" width="110px" height="110px" src="assets/images/accessory/PURPLE-HEADSCARF.png">
+  <img class="drag" width="110px" height="110px" src="assets/images/accessory/LIGHT-BLUE-HEADSCARF.png">
+  <img class="drag" width="110px" height="110px" src="assets/images/accessory/pink-bunny-ears.png">
+  <img class="drag" width="110px" height="110px" src="assets/images/accessory/devil-horns.png"></div>
+  <div class="hat2">
+    <img class="drag" width="80px" height="50px" src="assets/images/accessory/BLUE-BALLCAP.png">
+    <img class="drag" width="80px" height="50px" src="assets/images/accessory/RED-BALLCAP.png">
+    <img class="drag" width="80px" height="50px" src="assets/images/accessory/PINK-BALLCAP.png">
+    <img class="drag" width="80px" height="50px" src="assets/images/accessory/ORANGE-BALLCAP.png">
+    <img class="drag" width="80px" height="50px" src="assets/images/accessory/PURPLE-BALLCAP.png">
+    <img class="drag" width="80px" height="50px" src="assets/images/accessory/LIGHTBLUE-BALLCAP.png"></div>
+
+    <!-- hats --><p>drinks & vices</p> 
+<div class="vices">
+  <img class="drag" width="55px" height="45px;" src="./assets/images/vices/CHEAP-COFFEE.png">
+  <img class="drag" width="55px" height="45px;" src="./assets/images/vices/EXPENSIVE-COFFEE.png">
+  <img class="drag" width="55px" height="45px;" src="./assets/images/vices/ICED-COFFEE.png">
+  <img class="drag" width="55px" height="45px;" src="./assets/images/vices/RED-WINE.png">
+  <img class="drag" width="55px" height="45px;" src="./assets/images/vices/WHITE-WINE.png">
+  <img class="drag" width="55px" height="45px;" src="./assets/images/vices/MARTINI.png">
+
+
+</div>
+
+
+
+          
+
+        </body>
+
+
+
+
+
+
+
+
+
+</html>
